@@ -1,15 +1,15 @@
-fun abs(i64 x) >> i64 {
+fun abs(x: i64) >> i64 {
     if x < 0 {
-        return -x
+        return -x;
     } else {
-        return x
-    } 
-} 
+        return x;
+    }
+}
 
-... 
-Sqare root function. Doesn't work with negative numbers 
 ...
-fun sqrt(f64 x) >> f64 {
+Sqare root function. Doesn't work with negative numbers
+...
+fun sqrt(x: f64) >> f64 {
     if x < 0 {
         return -1;
     }
@@ -25,15 +25,15 @@ fun sqrt(f64 x) >> f64 {
     return a;
 }
 
-fun pow(f64 a, i32 b) >> f64 { 
+fun pow(a: f64, b: i32) >> f64 {
     ... These are foolish things. It wont work for everything ...
-    
-    f64 pow = 1.0;  
+
+    f64 pow = 1.0;
 
     for int i = 0; i < abs(b); i++ {
-        pow = pow * b;
+        pow *= b;
     }
-  	
+
   	if b < 0 {
       	return 1 / pow;
     }
