@@ -1,8 +1,20 @@
+... TODO
+Add functions like is_nan, is_inf, infinity and nan as well
+...
+
 fun abs(x: i64) >> i64 {
     if x < 0 {
         return -x;
     } else {
         return x;
+    }
+}
+
+fun fabs(x: f64) >> f64 {
+    if x < 0.0 {
+        return -x
+    } else {
+        return x
     }
 }
 
@@ -39,4 +51,19 @@ fun pow(a: f64, b: i32) >> f64 {
     }
 
     return pow;
+}
+
+...
+Splits given float into integer and fractional parts
+    - Assigns intege part to i_ptr (Optional)
+...
+fun modf(x: f64, ptr<i32> i_ptr) >> f64 {
+
+}
+
+...
+Returns the largest integer less than or equal to x.
+...
+fun floor(x: f64) >> f64 {
+
 }
