@@ -2,6 +2,8 @@
 Add functions like is_nan, is_inf, infinity and nan as well
 ...
 
+?? const u64 INFINITY = 0x7FF0000000000000ULL;
+
 fun abs(x: i64) >> i64 {
     if x < 0 {
         return -x;
@@ -55,15 +57,16 @@ fun pow(a: f64, b: i32) >> f64 {
 
 ...
 Splits given float into integer and fractional parts
-    - Assigns intege part to i_ptr (Optional)
+    - Assigns intege part to i_ptr
 ...
-fun modf(x: f64, ptr<i32> i_ptr) >> f64 {
+wrap @modf(x: f64, ptr<f64> i_ptr) >> f64;
 
-}
+...
+Returns x rounded toward zero (fractional part removed).
+...
+wrap @trunc(x: f64) >> f64;
 
 ...
 Returns the largest integer less than or equal to x.
 ...
-fun floor(x: f64) >> f64 {
-
-}
+wrap @floor(x: f64) >> f64;
