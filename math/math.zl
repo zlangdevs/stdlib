@@ -2,7 +2,7 @@
 Add functions like is_nan, is_inf, infinity and nan as well
 ...
 
-?? const u64 INFINITY = 0x7FF0000000000000ULL;
+u64 INFINITY = 9223372036854775808;
 
 fun abs(x: i64) >> i64 {
     if x < 0 {
@@ -14,9 +14,9 @@ fun abs(x: i64) >> i64 {
 
 fun fabs(x: f64) >> f64 {
     if x < 0.0 {
-        return -x
+        return -x;
     } else {
-        return x
+        return x;
     }
 }
 
@@ -40,33 +40,32 @@ fun sqrt(x: f64) >> f64 {
 }
 
 fun pow(a: f64, b: i32) >> f64 {
-    ... These are foolish things. It wont work for everything ...
-
-    f64 pow = 1.0;
-
-    for int i = 0; i < abs(b); i++ {
-        pow *= b;
+    ... Let me cook ...
+    f64 res = 1.0;
+    i32 exp = abs(b as i64) as i32;
+    f64 base = a;
+    if base < 0 {base = 1.0 / base;}
+    if b == 0 {return 1.0;}
+    if a == 0.0 {
+        if b > 0 {return 0.0;}
+        else {return INFINITY as f64;}
     }
-
-  	if b < 0 {
-      	return 1 / pow;
+    if b == 1.0 || base == -1.0 {return 1.0;}
+    for exp > 0 {
+        if (exp % 2) == 1 {res = res * base;}
+        base *= base;
+        exp /= 2;
     }
-
-    return pow;
+    return res;
 }
 
-...
-Splits given float into integer and fractional parts
-    - Assigns intege part to i_ptr
-...
-wrap @modf(x: f64, ptr<f64> i_ptr) >> f64;
+fun trunc(x: f64) >> f64 {
+    return (x as i64) as f64;
+}
 
-...
-Returns x rounded toward zero (fractional part removed).
-...
-wrap @trunc(x: f64) >> f64;
-
-...
-Returns the largest integer less than or equal to x.
-...
-wrap @floor(x: f64) >> f64;
+fun floor(x: f64) >> f64 {
+    f64 xt = trunc(x);
+    f64 diff = x - xt;
+    if diff >= 0.5 || diff <= -0.5 {return xt + 1.0;}
+    return xt;
+}

@@ -1,0 +1,11 @@
+use math
+
+fun main() >> i32 {
+    @printf("(expected 3):%d\n", abs(-3));
+    @printf("(expected 3.0):%.1f\n", fabs(-3.0));
+    @printf("(expected 5.0):%.1f\n", sqrt(25.0));
+    @printf("(expected 25.0):%.1f\n", pow(5.0, 2));
+    @printf("(expected 3.0):%.1f\n", trunc(3.5));
+    @printf("(expected 4.0):%.1f\n", floor(3.5));
+    return 0;
+}
