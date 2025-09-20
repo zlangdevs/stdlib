@@ -1,0 +1,9 @@
+use time
+
+fun main() >> i32 {
+    srand(time(0) as i32);
+    @printf("%d\n", rand());
+    @printf("%d\n", rand());
+    @printf("%d\n", rand());
+    return 0;
+}

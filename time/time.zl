@@ -1,0 +1,8 @@
+?? thats all for now, i need it for random
+fun @time(a: i64) >> i64;
+...
+idk why the hell it works lmao
+and this do not:
+wrap @time(a: i64) >> i64;
+
+ill fix it later...

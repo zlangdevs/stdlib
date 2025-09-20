@@ -1,0 +1,6 @@
+use time
+
+fun main() >> i32 {
+    @printf("time from 0: %d\n", time(0));
+    return 0;
+}
