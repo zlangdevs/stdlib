@@ -4,9 +4,6 @@ and do fancy stuff like INFINITY, -INFINITY for negative
 and positive infinity
 ...
 
-u64 POS_INFINITY = null;  ?? There is no way to represent INFINITY in decimal
-u64 NEG_INFINITY = null;  ?? (surprice)
-
 fun is_inf(x: f64) >> bool {
     return x == POS_INFINITY || x == NEG_INFINITY
 }

@@ -1,3 +1,6 @@
+u64 POS_INFINITY = null;  ?? There is no way to represent INFINITY in decimal
+u64 NEG_INFINITY = null;  ?? (surprice)
+
 fun abs(x: i64) >> i64 {
     if x < 0 {
         return -x;
@@ -41,7 +44,7 @@ fun pow(a: f64, b: i64) >> f64 {
 
     if a == 0.0 {
         if b > 0 { return 0.0; }
-        else { return INFINITY as f64; }
+        else { return POS_INFINITY as f64; }
     }
 
     if b == 1.0 || base == -1.0 {

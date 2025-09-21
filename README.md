@@ -24,7 +24,10 @@ use/math
 
 Note that any library function implemented in the .use.zl file will not have any benefits of the compiled .so library. So alternatively, you should write it in separate .zl file and then compile it into .so (will be done by a script later)
 
+If some library has custom, non usual programming language or a way it should be compiled to `.so`, create custom `build.sh` in the library directory
+
 ## TODO
 - [x] Tests
-- [ ] Compile script
+- [ ] Tests script
+- [x] Build script
 - [ ] Instalation (into ~/.local/lib or /usr/local/lib)
