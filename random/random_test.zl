@@ -1,3 +1,0 @@
-fun @srand(seed: u32) >> i32;
-
-fun @rand() >> i32;

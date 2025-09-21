@@ -1,9 +1,3 @@
-... TODO
-Add functions like is_nan, is_inf, infinity and nan as well
-...
-
-u64 INFINITY = 9223372036854775808;
-
 fun abs(x: i64) >> i64 {
     if x < 0 {
         return -x;
@@ -20,9 +14,6 @@ fun fabs(x: f64) >> f64 {
     }
 }
 
-...
-Sqare root function. Doesn't work with negative numbers
-...
 fun sqrt(x: f64) >> f64 {
     if x < 0 {
         return -1;
@@ -39,33 +30,40 @@ fun sqrt(x: f64) >> f64 {
     return a;
 }
 
-fun pow(a: f64, b: i32) >> f64 {
-    ... Let me cook ...
+fun pow(a: f64, b: i64) >> f64 {
     f64 res = 1.0;
-    i32 exp = abs(b as i64) as i32;
+    i32 exp = abs(b) as i32;
+
     f64 base = a;
+
     if base < 0 {base = 1.0 / base;}
     if b == 0 {return 1.0;}
+
     if a == 0.0 {
-        if b > 0 {return 0.0;}
-        else {return INFINITY as f64;}
+        if b > 0 { return 0.0; }
+        else { return INFINITY as f64; }
     }
-    if b == 1.0 || base == -1.0 {return 1.0;}
+
+    if b == 1.0 || base == -1.0 {
+        return 1.0;
+    }
+
     for exp > 0 {
-        if (exp % 2) == 1 {res = res * base;}
+        if (exp % 2) == 1 {res *= base;}
         base *= base;
         exp /= 2;
     }
-    return res;
-}
 
-fun trunc(x: f64) >> f64 {
-    return (x as i64) as f64;
+    return res;
 }
 
 fun floor(x: f64) >> f64 {
     f64 xt = trunc(x);
     f64 diff = x - xt;
-    if diff >= 0.5 || diff <= -0.5 {return xt + 1.0;}
+
+    if diff >= 0.5 || diff <= -0.5 {
+        return xt + 1.0;
+    }
+
     return xt;
 }
